@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- Hero Section with Optimized Video Playback -->
+<div class="position-relative" style="height: 80vh; overflow: hidden;">
+  <video autoplay muted loop playsinline preload="metadata" class="hero-video" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+    <source src="{% static 'videos/ABOUTvd.mp4' %}" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <div class="position-absolute top-50 start-50 translate-middle text-white text-center">
+    <h2 class="fw-bold display-5">Empowering businesses with innovative solutions and seamless execution!</h2>
+  </div>
+</div>
+
+<!-- Who We Are -->
+<div class="container my-5">
+  <div class="row align-items-center">
+    <div class="col-md-6">
+      <div class="justify-text">
+        <p>GASS is a dynamic solutions provider specializing in advanced technologies and services within its core business sectors. With a strong emphasis on consultation, trading, service, installation, and comprehensive after-sales support, we are dedicated to empowering businesses through innovative solutions and seamless project execution.</p>
+        <p>At GASS, we pride ourselves on being a reliable partner in transforming our clients’ and partners’ visions into reality. Our commitment to excellence and customer satisfaction drives every aspect of our operations, ensuring successful outcomes and long-term value. Founded in 2005, GASS began its journey as an ambitious venture with a vision to bridge technology and practical business needs. Over the years, we have grown into a trusted name, known for our reliability, customer satisfaction, and unwavering commitment to excellence. From our early days as a local service provider to becoming a multi-disciplinary service partner, our journey has been fueled by passion, expertise, and a relentless pursuit of excellence. As we look ahead, we remain dedicated to pushing boundaries, embracing emerging technologies, and delivering solutions that shape the future.</p>
+      </div>
+    </div>
+    <div class="col-md-6 text-center">
+      <img src="{% static 'images/gass US.jpg' %}" alt="About GASS" class="img-fluid rounded shadow">
+    </div>
+  </div>
+</div>
+
+<!-- Our Strength -->
+<div class="about-strength"> <!-- Added wrapper -->
+  <div class="py-5" style="background-color: #fdf8ee; padding-bottom: 50px;">
+    <div class="container">
+      <h3 class="text-center fw-bold mb-4 text-gold">Our Strength</h3>
+    </div>
+    <div class="row text-center">
+      <div class="col-md-3">
+        <img src="{% static 'icons/people.png' %}" width="80" alt="Expertise">
+        <p class="mt-2 fw-semibold">Strong Team</p>
+        <p>A team of professionals with deep industry knowledge in the field.</p>
+      </div>
+      <div class="col-md-3">
+        <img src="{% static 'icons/quality assurence.png' %}" width="80" alt="Team">
+        <p class="mt-2 fw-semibold">Quality Assurance</p>
+        <p>Rigorous quality control for all our products and services.</p>
+      </div>
+      <div class="col-md-3">
+        <img src="{% static 'icons/coustomer support.png' %}" width="80" alt="Quality">
+        <p class="mt-2 fw-semibold">Customer Support</p>
+        <p>24/7 support to address client concerns and ensure satisfaction.</p>
+      </div>
+      <div class="col-md-3">
+        <img src="{% static 'icons/inovative solutions.png' %}" width="80" alt="Client-first">
+        <p class="mt-2 fw-semibold">Innovative Solutions</p>
+        <p>Cutting-edge technologies tailored to your business needs.</p>
+      </div>
+    </div>
+  </div>
+</div> <!-- End wrapper -->
+
+<!-- Our Vision -->
+<div class="py-5" style="background-color: #f5f5f5;">
+  <div class="container">
+    <h3 class="text-center fw-bold mb-4 text-gold">Our Aspiration and Purpose</h3>
+  </div>
+  <div class="container my-5">
+    <div class="row align-items-center">
+      <div class="col-md-6">
+        <h3 class="mb-4 text-start">
+          <span style="color: #e0a534;">Our</span> Aspiration
+        </h3>
+        <p style="text-align: justify;">We ENVISION becoming the most dependable company and partner in our line of business, primarily focusing on Nepal and the South Asian market. Our commitment is to lead innovation, drive technological advancements, and ensure the highest standards of service and support for our clients and business partners across various sectors.</p>
+      </div>
+      <div class="col-md-6 text-center">
+        <img src="{% static 'images/Our Aspiration.jpg' %}" alt="Vision" class="img-fluid rounded shadow" style="max-width: 80%;">
+      </div>
+    </div>
+  </div>
+
+  <!-- Our Mission -->
+  <div class="container my-5">
+    <div class="row align-items-center">
+      <div class="col-md-6">
+        <h3><span>Our</span> <span style="color: #e0a534;">Purpose</span></h3>
+        <p style="text-align: justify;">Our MISSION is to provide seamless, efficient solutions that deliver exceptional success to our associates and business partners. We strive to be at the forefront of industry evolution, leveraging our team's expertise and cutting-edge technology to foster sustainable growth and impactful change in every project we undertake.</p>
+      </div>
+      <div class="col-md-6 text-center">
+        <img src="{% static 'images/Our Purpose.jpg' %}" alt="Mission" class="img-fluid rounded shadow" style="max-width: 80%;">
+      </div>
+    </div>
+  </div>
+
+  <!-- Our Strategy -->
+  <div class="container my-5">
+    <div class="row align-items-center">
+      <div class="col-md-6">
+        <h3><span style="color: #e0a534;">Strategic</span> Focus </h3>
+        <p style="text-align: justify;">Our STRATEGY is to harness the combined strength of our knowledge, skills, and technology to empower businesses with comprehensive, forward-thinking solutions. We aim to utilize the best of GASS’s resources, ensuring that we offer tailored services that address the unique needs of our clients while maintaining the highest levels of customer satisfaction and operational excellence.</p>
+      </div>
+      <div class="col-md-6 text-center">
+        <img src="{% static 'images/Strategic Focus.jpg' %}" alt="Strategy" class="img-fluid rounded shadow" style="max-width: 80%;">
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
+
+<!-- Custom CSS for the Hero Section -->
+<style>
+  /* Ensure text is justified for Vision, Mission, and Strategy sections */
+  p {
+    text-align: justify !important;
+  }
+</style>

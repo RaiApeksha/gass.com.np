@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!-- Who We Are -->
+<div class="container my-5">
+  <div class="row align-items-center">
+    <div class="col-md-6">
+      <h3 class="text-primary fw-bold">Who We Are</h3>
+
+      <p>GASS is a dynamic solutions provider specializing in advanced technologies and services within its core business sectors. With a strong emphasis on consultation, trading, service, installation, and comprehensive after-sales support, we are dedicated to empowering businesses through innovative solutions and seamless project execution.</p>
+      <p>At GASS, we pride ourselves on being a reliable partner in transforming our clients’ and partners’ visions into reality. Our commitment to excellence and customer satisfaction drives every aspect of our operations, ensuring successful outcomes and long-term value.</p>
+    </div>
+    <div class="col-md-6 text-center">
+      <img src="{% static 'images/who_we_are.jpeg' %}" alt="About GASS" class="img-fluid rounded shadow">
+    </div>
+  </div>
+</div>
+{% endblock %}

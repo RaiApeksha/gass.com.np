@@ -1,0 +1,27 @@
+# DO NOT REMOVE. CLOUDLINUX PASSENGER CONFIGURATION BEGIN
+PassengerAppRoot "/home2/gassadmin/GASSPRO"
+PassengerBaseURI "/"
+PassengerPython "/home2/gassadmin/virtualenv/GASSPRO/3.11/bin/python"
+# DO NOT REMOVE. CLOUDLINUX PASSENGER CONFIGURATION END
+# Disable directory listing (fixes "Index of /" issue)
+Options -Indexes
+
+# Enable URL rewriting
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Serve static files directly (Apache bypasses Django)
+    RewriteCond %{REQUEST_URI} ^/static/
+    RewriteRule ^static/(.*)$ /home2/gassadmin/public_html/static/$1 [L]
+
+    # Serve media files directly
+    RewriteCond %{REQUEST_URI} ^/media/
+    RewriteRule ^media/(.*)$ /home2/gassadmin/public_html/media/$1 [L]
+</IfModule>
+
+# php -- BEGIN cPanel-generated handler, do not edit
+# Set the “ea-php82” package as the default “PHP” programming language.
+<IfModule mime_module>
+  AddHandler application/x-httpd-ea-php82 .php .php8 .phtml
+</IfModule>
+# php -- END cPanel-generated handler, do not edit

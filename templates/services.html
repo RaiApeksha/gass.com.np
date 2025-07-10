@@ -1,0 +1,153 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- Hero Section with Animated Video and Text -->
+<div class="position-relative" style="height: 80vh; overflow: hidden;">
+  <video autoplay muted loop playsinline preload="metadata" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+    <source src="{% static 'videos/SERVICE_HH.mp4' %}" type="video/mp4">
+  </video>
+
+  <div class="position-absolute top-50 start-50 translate-middle text-white text-center px-3">
+    <h2 class="fw-bold animate__animated animate__slideInRight" style="
+        font-size: 2.8rem;
+        white-space: nowrap;
+        max-width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;">
+      Your Partner in Innovation and Excellence!
+    </h2>
+  </div>
+</div>
+
+<!-- Our Services Section -->
+<div class="py-5" style="background-color: #fdf8ee;">
+  <div class="container">
+    <h2 class="mb-4 text-center fw-bold" style="color: #e0a534;">Our Services</h2>
+
+    <div class="row g-4 justify-content-center">
+      {% for service in services %}
+        {% if forloop.last %}
+          <!-- Last Card Horizontally on Left, Image on Right -->
+          <div class="col-md-12" data-aos="fade-up">
+            <div class="row g-4 align-items-stretch">
+              <!-- Left: Last Service Card -->
+              <div class="col-md-6 d-flex">
+                <div class="d-flex flex-column flex-md-row hover-effect p-3 w-100" style="border: 1px solid #e0a534; transition: all 0.3s ease;">
+                  {% if service.image %}
+                  <div class="w-100 w-md-50 pe-md-3 mb-3 mb-md-0">
+                    <img src="{{ service.image.url }}" alt="{{ service.title }}" class="w-100 h-100" style="object-fit: cover;">
+                  </div>
+                  {% endif %}
+                  <div class="flex-grow-1 d-flex flex-column justify-content-center">
+                    <h5 class="fw-bold mb-2 text-center text-md-start" style="font-size: 1.5rem;
+                    {% if service.title == 'POWER & ENERGY' or service.title == 'OTHER SERVICES' %}
+                      color: #e0a534;
+                    {% endif %}">
+                      {{ service.title }}
+                    </h5>
+                    {% with service.description|striptags as desc %}
+                      {% if desc|length > 150 %}
+                        <p class="px-2" style="text-align: justify; line-height: 1.5; font-weight: 400;" id="desc-short-{{ forloop.counter }}">
+                          <span id="short-{{ forloop.counter }}">{{ desc|slice:":150" }}<span id="dots-{{ forloop.counter }}">...</span></span>
+                          <span id="more-{{ forloop.counter }}" style="display:none;">{{ desc|slice:"150:" }}</span>
+                        </p>
+                        <button class="btn btn-link read-more-btn px-2" onclick="toggleReadMore({{ forloop.counter }})" id="btn-{{ forloop.counter }}" style="color: #e0a534;">
+                          Read More
+                        </button>
+                      {% else %}
+                        <p class="px-2" style="text-align: justify; line-height: 1.5; font-weight: 400;">{{ desc }}</p>
+                      {% endif %}
+                    {% endwith %}
+                  </div>
+                </div>
+              </div>
+
+              <!-- Right: Static Image -->
+              <div class="col-md-6 d-flex align-items-center">
+                <img src="{% static 'images/pexels-padrinan-343460.jpg' %}" alt="Extra Services" class="img-fluid rounded shadow w-100" style="object-fit: cover; min-height: 100%;">
+              </div>
+            </div>
+          </div>
+        {% else %}
+          <!-- Standard Vertical Cards -->
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="{{ forloop.counter0|add:'100' }}">
+            <div class="service-card h-100 d-flex flex-column justify-content-between p-3 hover-effect" style="border: 1px solid #e0a534; transition: all 0.3s ease;">
+              {% if service.image %}
+                <img src="{{ service.image.url }}" alt="{{ service.title }}" class="service-image w-100 mb-3" />
+              {% endif %}
+              <div class="flex-grow-1 d-flex flex-column justify-content-center">
+                <h5 class="text-center" style="font-weight: 700; font-size: 1.5rem;
+                {% if service.title == 'POWER & ENERGY' or service.title == 'OTHER SERVICES' %}
+                  color: #e0a534;
+                {% endif %}">
+                  {{ service.title }}
+                </h5>
+                {% with service.description|striptags as desc %}
+                  {% if desc|length > 150 %}
+                    <p class="px-2" style="text-align: justify; line-height: 1.8; font-weight: 400;" id="desc-short-{{ forloop.counter }}">
+                      <span id="short-{{ forloop.counter }}">{{ desc|slice:":150" }}<span id="dots-{{ forloop.counter }}">...</span></span>
+                      <span id="more-{{ forloop.counter }}" style="display:none;">{{ desc|slice:"150:" }}</span>
+                    </p>
+                    <button class="btn btn-link read-more-btn px-2" onclick="toggleReadMore({{ forloop.counter }})" id="btn-{{ forloop.counter }}" style="color: #e0a534;">
+                      Read More
+                    </button>
+                  {% else %}
+                    <p class="px-2" style="text-align: justify; line-height: 1.8; font-weight: 400;">{{ desc }}</p>
+                  {% endif %}
+                {% endwith %}
+              </div>
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    <!-- See All Services Button -->
+    <div class="text-center mt-5">
+      <a href="{% url 'services' %}" class="btn btn-outline-warning px-4 py-2" style="border-color: #e0a534; color: #e0a534;">
+        See All Services
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- Hover Effect -->
+<style>
+  .hover-effect:hover {
+    transform: scale(1.03);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  }
+</style>
+
+<!-- Animate.css -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+<!-- JS Read More -->
+<script>
+  function toggleReadMore(id) {
+    const shortText = document.getElementById("short-" + id);
+    const dots = document.getElementById("dots-" + id);
+    const moreText = document.getElementById("more-" + id);
+    const btn = document.getElementById("btn-" + id);
+
+    if (moreText.style.display === "none") {
+      moreText.style.display = "inline";
+      dots.style.display = "none";
+      btn.innerText = "Read Less";
+    } else {
+      moreText.style.display = "none";
+      dots.style.display = "inline";
+      btn.innerText = "Read More";
+    }
+  }
+
+  AOS.init({
+    duration: 800,
+    easing: 'ease-in-out',
+    once: true
+  });
+</script>
+
+{% endblock %}

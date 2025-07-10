@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!-- Our Strength -->
+<div class="about-strength"> <!-- Added wrapper -->
+<div class="py-5" style="background-color: #fdf8ee;">
+  <div class="container">
+  <h3 class="text-center fw-bold mb-4 text-gold">Our Strength</h3>
+...
+<div class="container py-5" style="background-color: #fdf8ee;">
+
+  <div class="row text-center">
+    <div class="col-md-3">
+      <img src="{% static 'icons/people.png' %}" width="80" alt="Expertise">
+      <p class="mt-2 fw-semibold">Strong Team</p>
+      <p>A team of professionals with deep industry knowledge in the field.</p>
+    </div>
+    <div class="col-md-3">
+      <img src="{% static 'icons/quality assurence.png' %}" width="80" alt="Team">
+      <p class="mt-2 fw-semibold">Quality Assurance</p>
+      <p>Rigorous quality control for all our products and services.</p>
+    </div>
+    <div class="col-md-3">
+      <img src="{% static 'icons/coustomer support.png' %}" width="80" alt="Quality">
+      <p class="mt-2 fw-semibold">Customer Support</p>
+      <p>24/7 support to address client concerns and ensure satisfaction.</p>
+    </div>
+    <div class="col-md-3">
+      <img src="{% static 'icons/inovative solutions.png' %}" width="80" alt="Client-first">
+      <p class="mt-2 fw-semibold">Innovative Solutions</p>
+      <p>Cutting-edge technologies tailored to your business needs.</p>
+    </div>
+  </div>
+</div>
+</div> <!-- End wrapper -->
+{% endblock %}

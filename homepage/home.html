@@ -1,0 +1,201 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<style>
+  body {
+    background-color: #fef6e4;
+  }
+
+  /* Banner section */
+  .banner-section {
+    padding: 60px 0;
+  }
+
+  .banner-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: auto;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+
+  .banner-text, .banner-image {
+    flex: 1;
+    min-width: 300px;
+  }
+
+  .banner-text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-align: left;
+  }
+
+  .banner-text p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    text-align: justify !important; /* ✅ Fixed */
+  }
+
+  .banner-text a.btn-readmore {
+    display: inline-block;
+    margin-top: 20px;
+    background: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+  }
+
+  .banner-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  }
+
+  /* CEO section */
+  .ceo-section {
+    padding: 60px 0;
+    background-color: #f9f9f9;
+  }
+
+  .ceo-container {
+    max-width: 1000px;
+    margin: auto;
+    text-align: center;
+  }
+
+  .ceo-container h2 {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+  }
+
+  .ceo-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .ceo-content img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+  }
+
+  .ceo-message {
+    text-align: justify !important; /* ✅ Fixed */
+    font-size: 1.1rem;
+    line-height: 1.8;
+  }
+
+  /* Mobile responsiveness */
+  @media (max-width: 767.98px) {
+    .banner-container {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .banner-text h2 {
+      text-align: center;
+      font-size: 2rem;
+    }
+
+    /* ✅ Removed the text-align: center override for banner-text p */
+
+    .ceo-container h2 {
+      font-size: 1.8rem;
+    }
+
+    /* ✅ Removed the text-align: center override for ceo-content p */
+
+    .banner-text a.btn-readmore,
+    .banner-text a.btn {
+      display: block;
+      margin: 10px auto;
+      width: fit-content;
+    }
+  }
+</style>
+
+<div style="background-color: #fef6e4;">
+  <div class="justify-text">
+
+    <!-- Hero Section -->
+    <section class="hero-section d-flex align-items-center justify-content-center text-center">
+      <div class="container text-white">
+        <h1 class="display-4 fw-bold mb-3 animate__animated animate__fadeInDown">
+          GASS – Comprehensive Solutions Through Smart Innovation and Seamless Support
+        </h1>
+        <p class="lead mb-4 animate__animated animate__fadeInUp animate__delay-1s" style="color: #e0a534;">
+          Tech solution provider & trusted partnership for sustainable growth.
+        </p>
+
+        <a href="{% url 'services' %}" class="btn btn-lg" style="background-color: #E0A534; color: white;">
+          <i class="bi bi-rocket"></i> Explore Services
+        </a>
+
+        <a href="{% url 'contact' %}" class="btn btn-outline-light btn-lg animate__animated animate__fadeInRight animate__delay-2s">
+          <i class="bi bi-envelope-fill me-1"></i> Contact Us
+        </a>
+      </div>
+    </section>
+
+    <!-- Banner Section -->
+    <section class="banner-section">
+      <div class="banner-container">
+        <!-- Left Side: Text -->
+        <div class="banner-text">
+          <h2 style="margin-bottom: 0; color: black;">GLOBAL APPLICATION</h2>
+          <h2 style="margin-top: 0; color: #e0a534;">& SYSTEM SOLUTION</h2>
+          <p>
+            Global Application and System Solution Pvt. Ltd (GASS) is a company working in telecom, ICT, power & energy and support services. We deliver innovative and reliable technology solutions. Your Partner in Innovation and Excellence!
+          </p>
+          <a href="{% url 'about' %}" class="btn" style="background-color: #E0A534; color: white;">Read More</a>
+        </div>
+
+        <!-- Right Side: Image -->
+        <div class="banner-image">
+          <img src="{% static 'images/gass_homepage.png' %}" alt="GASS Banner">
+        </div>
+      </div>
+    </section>
+
+ <!-- CEO Message Section -->
+<section class="ceo-section">
+  <div class="ceo-container">
+    <h2 style="color: #e0a534;">OUR LEADERSHIP</h2>
+    <div class="ceo-content">
+
+      <img src="{% static 'images/CEO sirr.jpeg' %}" alt="CEO Image">
+
+      <p class="ceo-message">
+        <span style="color: black;">“</span><span style="color: #e0a534;">At GASS</span>, we are committed to building a smarter and more connected future. Our vision is to empower industries through innovative technology solutions that are sustainable, reliable, and efficient. We don’t just deliver solutions — we build lasting partnerships that drive progress.”
+      </p>
+
+      <p style="text-align: center;">
+        <strong>– CEO/FOUNDER MR. LOKENDRA KARKI</strong>
+      </p>
+
+    </div>
+  </div>
+</section>
+
+</div>
+
+{% endblock %}
+
+<style>
+  .ceo-message {
+    text-align: justify !important;
+    word-break: break-word;
+    font-size: 1.1rem;
+    line-height: 1.8;
+  }
+</style>

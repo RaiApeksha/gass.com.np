@@ -1,0 +1,155 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- Header -->
+<div class="py-5" style="background-color: #fff9ec;">
+  <div class="container">
+<div class="container text-center my-5">
+  <h2 class="fw-bold" style="color: #e0a534;">Get in Touch With Us</h2>
+  <p class="lead">We're here to answer your questions and help you move forward with confidence.</p>
+</div>
+
+<!-- Contact Form and Info -->
+<div class="container my-5">
+  <div class="row g-5">
+
+    <!-- Contact Form -->
+    <div class="col-lg-6">
+      <form method="post" class="bg-white p-4 rounded shadow-sm" id="contactForm" novalidate style="border: 2px solid #e0a534;">
+        {% csrf_token %}
+
+        {% if messages %}
+          {% for message in messages %}
+            {% if message.tags == 'success' %}
+              <div id="successAlert" class="alert alert-success" role="alert">
+                {{ message }}
+              </div>
+            {% else %}
+              <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+
+        <!-- Floating Labels -->
+
+        <div class="form-floating mb-3">
+          {{ form.name }}
+          <label for="{{ form.name.id_for_label }}">Full Name <span class="text-danger">*</span></label>
+          {% if form.name.errors %}
+            <div class="text-danger small mt-1">{{ form.name.errors|striptags }}</div>
+          {% endif %}
+        </div>
+
+        <div class="form-floating mb-3">
+          {{ form.email }}
+          <label for="{{ form.email.id_for_label }}">Email Address <span class="text-danger">*</span></label>
+          {% if form.email.errors %}
+            <div class="text-danger small mt-1">{{ form.email.errors|striptags }}</div>
+          {% endif %}
+        </div>
+
+        <div class="form-floating mb-3">
+          {{ form.phone }}
+          <label for="{{ form.phone.id_for_label }}">Phone Number</label>
+          {% if form.phone.errors %}
+            <div class="text-danger small mt-1">{{ form.phone.errors|striptags }}</div>
+          {% endif %}
+        </div>
+
+        <div class="form-floating mb-3">
+          {{ form.subject }}
+          <label for="{{ form.subject.id_for_label }}">Subject <span class="text-danger">*</span></label>
+          {% if form.subject.errors %}
+            <div class="text-danger small mt-1">{{ form.subject.errors|striptags }}</div>
+          {% endif %}
+        </div>
+
+        <div class="form-floating mb-3">
+          {{ form.message }}
+          <label for="{{ form.message.id_for_label }}">Your Message <span class="text-danger">*</span></label>
+          {% if form.message.errors %}
+            <div class="text-danger small mt-1">{{ form.message.errors|striptags }}</div>
+          {% endif %}
+        </div>
+
+
+      <!-- Loading Spinner -->
+      <div id="loadingSpinner" class="d-none position-fixed top-0 start-0 w-100 h-100 bg-dark bg-opacity-50 d-flex justify-content-center align-items-center" style="z-index: 9999;">
+        <div class="spinner-border text-light" role="status">
+          <span class="visually-hidden">Sending...</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact Info -->
+<div class="col-lg-6">
+  <div class="p-4 rounded shadow-sm bg-light" style="border: 2px solid #e0a534; height: 100%;">
+    <h5 class="fw-bold" style="color: #e0a534;">Our Office</h5>
+
+    <p>
+      <i class="bi bi-geo-alt-fill me-2"></i>
+      Bhaisepati-18, Lalitpur Metropolitan City, Lalitpur, Nepal
+    </p>
+
+    <h6>Email:</h6>
+    <p>
+      <i class="bi bi-envelope-fill me-2"></i>
+      <a href="mailto:admin@gass.com.np" style="text-decoration: none; color: black;">
+        admin@gass.com.np
+      </a>
+    </p>
+
+    <h6>Phone:</h6>
+    <p>
+      <i class="bi bi-telephone-fill me-2"></i>
+      +977-1-5015251
+    </p>
+
+    <h6>Fax:</h6>
+    <p>
+      <i class="bi bi-printer-fill me-2"></i>
+      +977-1-5015297
+    </p>
+
+    <h6>Working Hours:</h6>
+    <p>
+      <i class="bi bi-clock-fill me-2"></i>
+      Sunday - Friday: 9:30 AM - 5:30 AM
+    </p>
+  </div>
+</div>
+
+
+
+<!-- Embedded Google Map -->
+<div class="container mb-5">
+  <div class="ratio ratio-16x9 shadow-sm rounded overflow-hidden">
+    <iframe
+      src="https://www.google.com/maps?q=27.65916100312712,85.30095214963049&hl=en&z=16&output=embed"
+      allowfullscreen
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const successAlert = document.getElementById('successAlert');
+    if (successAlert) {
+      setTimeout(() => {
+        // fade out with Bootstrap class then remove
+        successAlert.classList.remove('show');
+        successAlert.classList.add('fade');
+        setTimeout(() => successAlert.remove(), 500); // remove after fade transition
+      }, 5000); // 5000ms = 5 seconds
+    }
+  });
+</script>
+
+{% endblock %} "
