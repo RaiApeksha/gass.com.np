@@ -81,4 +81,5 @@ gass.com.np/
 📄 License
 This project is open-source under the MIT License.
 
-End to End Devlopment by : Apeksha Rai 
+End to End Devlopment by :Apeksha Rai 
+https://np.linkedin.com/in/apeksha-rai-6226521b6
