@@ -26,12 +26,12 @@ Visit: 👉 [https://gass.com.np](https://gass.com.np)
 - **cPanel Deployment**
 - **Django Admin Panel**
 
-🙋 Contact
-📧 Email: admin@gass.com.np
-🌐 Website: https://gass.com.np
 
 📄 License
 This project is open-source under the MIT License.
 
+🙋 Contact
+📧 Email: apeksharai2022@gmail.com
 End to End Devlopment by :Apeksha Rai 
 https://np.linkedin.com/in/apeksha-rai-6226521b6
+
